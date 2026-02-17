@@ -1,0 +1,39 @@
+body {
+    background-color: #f9f9f9;   /* same background everywhere */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+th {
+    background-color: #e6e6e6;
+    font-weight: bold;
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.links a {
+    text-decoration: none;
+    color: blue;
+    margin: 0 10px;
+}

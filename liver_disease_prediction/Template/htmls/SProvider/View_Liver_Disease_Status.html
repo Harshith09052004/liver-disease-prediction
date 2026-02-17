@@ -1,0 +1,30 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<h2 style="text-align:center; color:black;">
+    Liver Disease Prediction Results
+</h2>
+
+<div class="content-box">
+
+<table border="1" cellpadding="8" width="100%">
+    <tr style="background:#584b4f; color:white;">
+        <th>Patient ID</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Prediction</th>
+    </tr>
+
+    {% for obj in list_objects %}
+    <tr>
+        <td>{{ obj.Pid }}</td>
+        <td>{{ obj.Age }}</td>
+        <td>{{ obj.Gender }}</td>
+        <td>{{ obj.prediction }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+{% endblock %}
