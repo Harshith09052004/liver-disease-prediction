@@ -1,6 +1,8 @@
-Flask
-numpy
-pandas
-scikit-learn
-gunicorn
-django
+Django==4.2.7
+gunicorn==21.2.0
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+scipy==1.12.0
+joblib==1.4.2
+threadpoolctl==3.5.0
