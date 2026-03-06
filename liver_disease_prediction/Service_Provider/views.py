@@ -17,7 +17,6 @@ def serviceproviderlogin(request):
         password = request.POST.get('password')
 
         if username == "ServiceProvider" and password == "ServiceProvider":
-
             request.session['sp'] = True
             return render(request, 'SProvider/serviceproviderhome.html')
 
@@ -59,12 +58,17 @@ def View_Liver_Disease_Status(request):
 def Train_Test_DataSets(request):
 
     csv_path = os.path.join(settings.BASE_DIR, "liver_patient.csv")
-    df = pd.read_csv(csv_path)
+
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+        data = df.head(100).to_html()
+    else:
+        data = "Dataset file not found."
 
     return render(
         request,
         'SProvider/Train_Test_DataSets.html',
-        {"data": df.head(100).to_html()}
+        {"data": data}
     )
 
 
@@ -72,10 +76,14 @@ def Train_Test_DataSets(request):
 def Find_Liver_Disease_Ratio(request):
 
     csv_path = os.path.join(settings.BASE_DIR, "liver_patient.csv")
-    df = pd.read_csv(csv_path)
 
-    disease = len(df[df['Dataset'] == 1])
-    nodisease = len(df[df['Dataset'] == 2])
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+        disease = len(df[df['Dataset'] == 1])
+        nodisease = len(df[df['Dataset'] == 2])
+    else:
+        disease = 0
+        nodisease = 0
 
     return render(
         request,
@@ -88,10 +96,15 @@ def Find_Liver_Disease_Ratio(request):
 def Download_Trained_DataSets(request):
 
     csv_path = os.path.join(settings.BASE_DIR, "liver_patient.csv")
-    df = pd.read_csv(csv_path)
+
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+        data = df.to_html()
+    else:
+        data = "Dataset file not found."
 
     return render(
         request,
         'SProvider/Download_Trained_DataSets.html',
-        {"data": df.to_html()}
+        {"data": data}
     )
