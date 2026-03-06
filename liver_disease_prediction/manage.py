@@ -6,16 +6,19 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'liver_disease_prediction.liver_disease_prediction.settings')
+
+    os.environ.setdefault(
+        'DJANGO_SETTINGS_MODULE',
+        'liver_disease_prediction.settings'
+    )
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
-            "Couldn't import Django. Are you sure it's installed and "
-            "available on your PYTHONPATH environment variable? Did you "
-            "forget to activate a virtual environment?"
+            "Couldn't import Django."
         ) from exc
+
     execute_from_command_line(sys.argv)
 
 
