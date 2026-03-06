@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ResearchSiteConfig(AppConfig):
-    name = 'Service_Provider'
+   name = 'liver_disease_prediction.Service_Provider'
