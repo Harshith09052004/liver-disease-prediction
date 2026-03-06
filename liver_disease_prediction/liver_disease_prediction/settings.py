@@ -1,31 +1,22 @@
 import os
-# ...existing code...
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from pathlib import Path
 
-# ...existing code...
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-# ...existing code...
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm+1edl5m-5@u9u!b8-=4-4mq&o1%agco2xpl8c!7sn7!eowjk#'
+# SECURITY
+SECRET_KEY = 'django-insecure-key'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "liver-disease-prediction-e4jd.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 
-# Application definition
-
+# ---------------- INSTALLED APPS ----------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,11 +24,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'liver_disease_prediction.Remote_User',
     'liver_disease_prediction.Service_Provider',
 ]
 
 
+# ---------------- MIDDLEWARE ----------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,13 +41,21 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'liver_disease_prediction.liver_disease_prediction.urls'
 
+ROOT_URLCONF = 'liver_disease_prediction.urls'
+
+
+# ---------------- TEMPLATES ----------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'Template', 'htmls')],
+
+        'DIRS': [
+            os.path.join(BASE_DIR, 'Template')
+        ],
+
         'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -66,13 +67,20 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'liver_disease_prediction.wsgi.application'
 
-# ...existing code...
 
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
+# ---------------- DATABASE ----------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
+
+# ---------------- PASSWORD VALIDATION ----------------
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -80,33 +88,27 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
 
+# ---------------- LANGUAGE ----------------
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
-USE_L10N = True
-
 USE_TZ = True
 
 
-# Static / media files
+# ---------------- STATIC FILES ----------------
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Template', 'images')]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'Template', 'images')
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+# ---------------- MEDIA ----------------
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Template', 'media')
-# ...existing code...
