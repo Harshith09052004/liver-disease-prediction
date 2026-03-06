@@ -48,8 +48,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
- ROOT_URLCONF = 'liver_disease_prediction.liver_disease_prediction.urls'
+ROOT_URLCONF = 'liver_disease_prediction.liver_disease_prediction.urls'
 
 TEMPLATES = [
     {
