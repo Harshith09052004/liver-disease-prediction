@@ -33,8 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Remote_User',
-    'Service_Provider',
+    'liver_disease_prediction.Remote_User',
+    'liver_disease_prediction.Service_Provider',
 ]
 
 
