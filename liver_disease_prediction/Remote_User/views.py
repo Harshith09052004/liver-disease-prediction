@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from Remote_User.models import ClientRegister_Model, disease_prediction
+from liver_disease_prediction.Remote_User.models import ClientRegister_Model, disease_prediction
 
 import pandas as pd
 import numpy as np
