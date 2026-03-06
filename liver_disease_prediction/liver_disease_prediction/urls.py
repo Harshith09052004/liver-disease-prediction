@@ -3,8 +3,9 @@ from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from Remote_User import views as remoteuser
-from Service_Provider import views as serviceprovider
+from liver_disease_prediction.Remote_User import views as remoteuser
+from liver_disease_prediction.Service_Provider import views as serviceprovider
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
