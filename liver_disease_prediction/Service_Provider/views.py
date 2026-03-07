@@ -21,7 +21,7 @@ def serviceproviderlogin(request):
 
         if username == "ServiceProvider" and password == "ServiceProvider":
             request.session['sp'] = True
-            return redirect('View_Remote_Users')   # redirect to dashboard
+            return redirect('View_Remote_Users')
 
         else:
             return render(
@@ -31,7 +31,6 @@ def serviceproviderlogin(request):
             )
 
     return render(request, 'htmls/SProvider/serviceproviderlogin.html')
-
 # ---------------- VIEW USERS ----------------
 def View_Remote_Users(request):
 
