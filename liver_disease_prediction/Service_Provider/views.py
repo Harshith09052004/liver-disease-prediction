@@ -108,3 +108,16 @@ def Download_Trained_DataSets(request):
         'SProvider/Download_Trained_DataSets.html',
         {"data": data}
     )
+from django.http import HttpResponse
+
+
+def charts(request, chart_type):
+    return HttpResponse(f"Charts Page: {chart_type}")
+
+
+def charts1(request, chart_type):
+    return HttpResponse(f"Charts1 Page: {chart_type}")
+
+
+def likeschart(request, like_chart):
+    return HttpResponse(f"Likes Chart Page: {like_chart}")
