@@ -51,7 +51,7 @@ MIDDLEWARE = [
 
 # ---------------- URL CONFIG ----------------
 
-ROOT_URLCONF = 'liver_disease_prediction.urls'
+ROOT_URLCONF = 'liver_disease_prediction.liver_disease_prediction.urls'
 
 
 # ---------------- TEMPLATES ----------------
@@ -119,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Template')
+    os.path.join(BASE_DIR, 'Template', 'images')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
