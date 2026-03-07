@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.http import HttpResponse
 
 from liver_disease_prediction.Service_Provider.models import *
 from liver_disease_prediction.Remote_User.models import ClientRegister_Model, disease_prediction
@@ -18,16 +19,16 @@ def serviceproviderlogin(request):
 
         if username == "ServiceProvider" and password == "ServiceProvider":
             request.session['sp'] = True
-            return render(request, 'SProvider/serviceproviderhome.html')
+            return render(request, 'htmls/SProvider/serviceproviderhome.html')
 
         else:
             return render(
                 request,
-                'SProvider/serviceproviderlogin.html',
+                'htmls/SProvider/serviceproviderlogin.html',
                 {"error": "Invalid Login"}
             )
 
-    return render(request, 'SProvider/serviceproviderlogin.html')
+    return render(request, 'htmls/SProvider/serviceproviderlogin.html')
 
 
 # ---------------- VIEW USERS ----------------
@@ -37,7 +38,7 @@ def View_Remote_Users(request):
 
     return render(
         request,
-        'SProvider/View_Remote_Users.html',
+        'htmls/SProvider/View_Remote_Users.html',
         {"objects": users}
     )
 
@@ -49,7 +50,7 @@ def View_Liver_Disease_Status(request):
 
     return render(
         request,
-        'SProvider/View_Liver_Disease_Status.html',
+        'htmls/SProvider/View_Liver_Disease_Status.html',
         {"objs": objs}
     )
 
@@ -67,7 +68,7 @@ def Train_Test_DataSets(request):
 
     return render(
         request,
-        'SProvider/Train_Test_DataSets.html',
+        'htmls/SProvider/Train_Test_DataSets.html',
         {"data": data}
     )
 
@@ -87,7 +88,7 @@ def Find_Liver_Disease_Ratio(request):
 
     return render(
         request,
-        'SProvider/Find_Liver_Disease_Ratio.html',
+        'htmls/SProvider/Find_Liver_Disease_Ratio.html',
         {"disease": disease, "nodisease": nodisease}
     )
 
@@ -105,28 +106,14 @@ def Download_Trained_DataSets(request):
 
     return render(
         request,
-        'SProvider/Download_Trained_DataSets.html',
+        'htmls/SProvider/Download_Trained_DataSets.html',
         {"data": data}
     )
-from django.http import HttpResponse
 
 
+# ---------------- CHARTS ----------------
 def charts(request, chart_type):
     return HttpResponse(f"Charts Page: {chart_type}")
-
-from django.http import HttpResponse
-
-
-def charts(request, chart_type):
-    return HttpResponse("Charts page working")
-
-
-def charts1(request, chart_type):
-    return HttpResponse("Charts1 page working")
-
-
-def likeschart(request, like_chart):
-    return HttpResponse("Likes chart page working")
 
 
 def charts1(request, chart_type):
