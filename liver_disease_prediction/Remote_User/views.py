@@ -25,7 +25,7 @@ def login(request):
         except ClientRegister_Model.DoesNotExist:
             return render(request, 'RUser/login.html', {"error": "Invalid username or password"})
 
-    return render(request, 'RUser/login.html')
+    return render(request, 'htmls/RUser/login.html')
 
 
 # ---------------- REGISTER ----------------
