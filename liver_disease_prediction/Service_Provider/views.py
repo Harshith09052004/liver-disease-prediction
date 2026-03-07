@@ -30,7 +30,7 @@ def serviceproviderlogin(request):
                 {"error": "Invalid Login"}
             )
 
-    return render(request, 'htmls/SProvider/serviceproviderlogin.html')
+    return redirect('View_Remote_Users')
 # ---------------- VIEW USERS ----------------
 def View_Remote_Users(request):
 
