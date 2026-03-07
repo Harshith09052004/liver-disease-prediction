@@ -114,6 +114,20 @@ from django.http import HttpResponse
 def charts(request, chart_type):
     return HttpResponse(f"Charts Page: {chart_type}")
 
+from django.http import HttpResponse
+
+
+def charts(request, chart_type):
+    return HttpResponse("Charts page working")
+
+
+def charts1(request, chart_type):
+    return HttpResponse("Charts1 page working")
+
+
+def likeschart(request, like_chart):
+    return HttpResponse("Likes chart page working")
+
 
 def charts1(request, chart_type):
     return HttpResponse(f"Charts1 Page: {chart_type}")
