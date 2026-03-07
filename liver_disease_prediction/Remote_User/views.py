@@ -19,16 +19,23 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        try:
-            user = ClientRegister_Model.objects.get(username=username, password=password)
+        user = ClientRegister_Model.objects.filter(
+            username=username,
+            password=password
+        ).first()
+
+        if user:
             request.session["userid"] = user.id
             return redirect('ViewYourProfile')
 
-        except ClientRegister_Model.DoesNotExist:
-            return render(request, 'htmls/RUser/login.html', {"error": "Invalid username or password"})
+        else:
+            return render(
+                request,
+                'htmls/RUser/login.html',
+                {"error": "Invalid username or password"}
+            )
 
     return render(request, 'htmls/RUser/login.html')
-
 
 # ---------------- REGISTER ----------------
 def Register1(request):
