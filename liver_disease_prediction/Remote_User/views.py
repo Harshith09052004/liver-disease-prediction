@@ -13,7 +13,9 @@ from sklearn.impute import SimpleImputer
 
 # ---------------- LOGIN ----------------
 def login(request):
+
     if request.method == "POST":
+
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -23,14 +25,16 @@ def login(request):
             return redirect('ViewYourProfile')
 
         except ClientRegister_Model.DoesNotExist:
-            return render(request, 'RUser/login.html', {"error": "Invalid username or password"})
+            return render(request, 'htmls/RUser/login.html', {"error": "Invalid username or password"})
 
     return render(request, 'htmls/RUser/login.html')
 
 
 # ---------------- REGISTER ----------------
 def Register1(request):
+
     if request.method == "POST":
+
         ClientRegister_Model.objects.create(
             username=request.POST.get('username'),
             email=request.POST.get('email'),
@@ -43,7 +47,7 @@ def Register1(request):
 
         return redirect('login')
 
-    return render(request, 'RUser/Register1.html')
+    return render(request, 'htmls/RUser/Register1.html')
 
 
 # ---------------- PROFILE ----------------
@@ -56,7 +60,7 @@ def ViewYourProfile(request):
 
     user = ClientRegister_Model.objects.get(id=userid)
 
-    return render(request, 'RUser/ViewYourProfile.html', {'object': user})
+    return render(request, 'htmls/RUser/ViewYourProfile.html', {'object': user})
 
 
 # ---------------- PREDICTION ----------------
@@ -65,7 +69,7 @@ def Predict_Liver_Disease_Status(request):
     if request.method == "POST":
 
         try:
-            # ---------------- USER INPUT ----------------
+
             input_data = [
                 float(request.POST.get('Age')),
                 float(request.POST.get('Total_Bilirubin')),
@@ -78,7 +82,6 @@ def Predict_Liver_Disease_Status(request):
                 float(request.POST.get('Albumin_and_Globulin_Ratio'))
             ]
 
-            # ---------------- LOAD DATASET ----------------
             csv_path = os.path.join(settings.BASE_DIR, "liver_patient.csv")
             df = pd.read_csv(csv_path)
 
@@ -95,24 +98,19 @@ def Predict_Liver_Disease_Status(request):
             ]
 
             X = df[features]
-            y = df['Dataset']   # 1 = disease, 2 = no disease
+            y = df['Dataset']
 
-            # Convert to binary
             y = y.apply(lambda x: 1 if x == 1 else 0)
 
-            # ---------------- HANDLE NaN ----------------
             imputer = SimpleImputer(strategy='mean')
             X = imputer.fit_transform(X)
 
-            # ---------------- SCALE DATA ----------------
             scaler = StandardScaler()
             X = scaler.fit_transform(X)
 
-            # ---------------- TRAIN MODEL ----------------
             model = LogisticRegression(max_iter=1000)
             model.fit(X, y)
 
-            # ---------------- PREDICT ----------------
             input_imputed = imputer.transform([input_data])
             input_scaled = scaler.transform(input_imputed)
 
@@ -123,7 +121,6 @@ def Predict_Liver_Disease_Status(request):
             else:
                 result = "No Liver Disease"
 
-            # ---------------- SAVE RESULT ----------------
             disease_prediction.objects.create(
                 Pid=request.POST.get('Pid'),
                 Age=request.POST.get('Age'),
@@ -141,15 +138,16 @@ def Predict_Liver_Disease_Status(request):
 
             return render(
                 request,
-                'RUser/Predict_Liver_Disease_Status.html',
+                'htmls/RUser/Predict_Liver_Disease_Status.html',
                 {'objs': result}
             )
 
         except Exception as e:
+
             return render(
                 request,
-                'RUser/Predict_Liver_Disease_Status.html',
+                'htmls/RUser/Predict_Liver_Disease_Status.html',
                 {"error": str(e)}
             )
 
-    return render(request, 'RUser/Predict_Liver_Disease_Status.html')
+    return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html')
