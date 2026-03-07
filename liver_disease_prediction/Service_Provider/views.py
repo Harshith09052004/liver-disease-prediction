@@ -10,6 +10,8 @@ import os
 
 
 # ---------------- SERVICE PROVIDER LOGIN ----------------
+from django.shortcuts import render, redirect
+
 def serviceproviderlogin(request):
 
     if request.method == "POST":
@@ -19,7 +21,7 @@ def serviceproviderlogin(request):
 
         if username == "ServiceProvider" and password == "ServiceProvider":
             request.session['sp'] = True
-            return render(request, 'htmls/SProvider/serviceproviderhome.html')
+            return redirect('View_Remote_Users')   # redirect to dashboard
 
         else:
             return render(
@@ -29,7 +31,6 @@ def serviceproviderlogin(request):
             )
 
     return render(request, 'htmls/SProvider/serviceproviderlogin.html')
-
 
 # ---------------- VIEW USERS ----------------
 def View_Remote_Users(request):
