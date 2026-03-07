@@ -26,7 +26,7 @@ def login(request):
 
         if user:
             request.session["userid"] = user.id
-            return redirect('ViewYourProfile')   # important redirect
+            return redirect('ViewYourProfile')
 
         else:
             return render(
