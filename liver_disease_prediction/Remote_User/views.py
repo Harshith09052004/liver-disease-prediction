@@ -26,7 +26,7 @@ def login(request):
 
         if user:
             request.session["userid"] = user.id
-            return redirect('ViewYourProfile')
+            return redirect('ViewYourProfile')   # important redirect
 
         else:
             return render(
@@ -36,7 +36,6 @@ def login(request):
             )
 
     return render(request, 'htmls/RUser/login.html')
-
 # ---------------- REGISTER ----------------
 def Register1(request):
 
