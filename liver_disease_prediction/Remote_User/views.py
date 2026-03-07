@@ -136,18 +136,10 @@ def Predict_Liver_Disease_Status(request):
                 prediction=result
             )
 
-            return render(
-                request,
-                'htmls/RUser/Predict_Liver_Disease_Status.html',
-                {'objs': result}
-            )
+            return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html', {'objs': result})
 
         except Exception as e:
 
-            return render(
-                request,
-                'htmls/RUser/Predict_Liver_Disease_Status.html',
-                {"error": str(e)}
-            )
+            return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html', {"error": str(e)})
 
     return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html')
