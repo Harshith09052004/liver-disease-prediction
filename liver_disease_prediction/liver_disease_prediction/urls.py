@@ -9,9 +9,11 @@ from liver_disease_prediction.Service_Provider import views as serviceprovider
 
 urlpatterns = [
 
+    # Admin
     path('admin/', admin.site.urls),
 
     # ---------------- REMOTE USER ----------------
+
     path('', remoteuser.login, name="login"),
 
     path('Register1/', remoteuser.Register1, name="Register1"),
@@ -28,8 +30,8 @@ urlpatterns = [
         name="ViewYourProfile"
     ),
 
-
     # ---------------- SERVICE PROVIDER ----------------
+
     path(
         'serviceproviderlogin/',
         serviceprovider.serviceproviderlogin,
@@ -66,8 +68,8 @@ urlpatterns = [
         name="Download_Trained_DataSets"
     ),
 
-
     # ---------------- CHARTS ----------------
+
     re_path(
         r'^charts/(?P<chart_type>\w+)/$',
         serviceprovider.charts,
@@ -88,5 +90,6 @@ urlpatterns = [
 
 ]
 
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Media files
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
