@@ -29,7 +29,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-ROOT_URLCONF = 'liver_disease_prediction.urls'
+ROOT_URLCONF = 'liver_disease_prediction.liver_disease_prediction.urls'
 
 TEMPLATES = [
     {
