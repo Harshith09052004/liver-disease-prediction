@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
-from liver_disease_prediction.Remote_User.models import ClientRegister_Model, disease_prediction
-
+from Remote_User.models import ClientRegister_Model, disease_prediction
 import pandas as pd
 import numpy as np
 import os
