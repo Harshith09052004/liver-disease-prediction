@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django.urls import path
-from predictor import views
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("Liver Disease Prediction Website Running")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='home'),
-    path('predict/', views.predict, name='predict'),
+    path('', home),
 ]
