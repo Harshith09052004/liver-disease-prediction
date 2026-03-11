@@ -18,8 +18,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'Remote_User',
-    'Service_Provider',
 ]
 
 
