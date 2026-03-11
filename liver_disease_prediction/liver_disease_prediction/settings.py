@@ -9,6 +9,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -16,8 +17,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    'Remote_User',
+    'Service_Provider',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -29,12 +33,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
+
 ROOT_URLCONF = 'liver_disease_prediction.liver_disease_prediction.urls'
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / 'Template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -47,7 +53,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'liver_disease_prediction.wsgi.application'
+
+WSGI_APPLICATION = 'liver_disease_prediction.liver_disease_prediction.wsgi.application'
+
 
 DATABASES = {
     'default': {
@@ -56,13 +64,21 @@ DATABASES = {
     }
 }
 
+
 AUTH_PASSWORD_VALIDATORS = []
+
 
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+USE_I18N = True
+
+USE_TZ = True
+
+
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
