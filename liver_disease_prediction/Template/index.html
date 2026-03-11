@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Liver Disease Prediction</title>
+</head>
+
+<body>
+
+<h2>Liver Disease Prediction</h2>
+
+<form action="/predict/" method="post">
+{% csrf_token %}
+
+Age: <input type="text" name="age"><br><br>
+Total Bilirubin: <input type="text" name="tb"><br><br>
+Direct Bilirubin: <input type="text" name="db"><br><br>
+Alkaline Phosphotase: <input type="text" name="alk"><br><br>
+ALT: <input type="text" name="alt"><br><br>
+AST: <input type="text" name="ast"><br><br>
+Total Proteins: <input type="text" name="tp"><br><br>
+Albumin: <input type="text" name="alb"><br><br>
+A/G Ratio: <input type="text" name="agr"><br><br>
+
+<input type="submit" value="Predict">
+
+</form>
+
+<h3>{{ result }}</h3>
+
+</body>
+</html>
