@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("Liver Disease Prediction Website Running")
+    return HttpResponse("Liver Disease Prediction Website Running Successfully")
 
 
 urlpatterns = [
