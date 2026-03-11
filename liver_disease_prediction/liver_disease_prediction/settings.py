@@ -17,7 +17,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Remote_User',
+    
+    'Remote_User.apps.RemoteUserConfig',
 ]
 
 
