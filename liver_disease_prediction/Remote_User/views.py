@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 
 
-# ---------------- LOGIN ----------------
+# LOGIN
 def login(request):
 
     if request.method == "POST":
@@ -28,15 +28,13 @@ def login(request):
             request.session["userid"] = user.id
             return redirect('ViewYourProfile')
 
-        else:
-            return render(
-                request,
-                'htmls/RUser/login.html',
-                {"error": "Invalid username or password"}
-            )
+        return render(request, 'htmls/RUser/login.html',
+                      {"error": "Invalid Username or Password"})
 
     return render(request, 'htmls/RUser/login.html')
-# ---------------- REGISTER ----------------
+
+
+# REGISTER
 def Register1(request):
 
     if request.method == "POST":
@@ -53,10 +51,10 @@ def Register1(request):
 
         return redirect('login')
 
-    return render(request, 'htmls/RUser/Register1.html')
+    return render(request, 'htmls/RUser/login.html')
 
 
-# ---------------- PROFILE ----------------
+# VIEW PROFILE
 def ViewYourProfile(request):
 
     userid = request.session.get('userid')
@@ -66,10 +64,12 @@ def ViewYourProfile(request):
 
     user = ClientRegister_Model.objects.get(id=userid)
 
-    return render(request, 'htmls/RUser/ViewYourProfile.html', {'object': user})
+    return render(request,
+                  'htmls/RUser/ViewYourProfile.html',
+                  {'object': user})
 
 
-# ---------------- PREDICTION ----------------
+# PREDICTION
 def Predict_Liver_Disease_Status(request):
 
     if request.method == "POST":
@@ -142,10 +142,15 @@ def Predict_Liver_Disease_Status(request):
                 prediction=result
             )
 
-            return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html', {'objs': result})
+            return render(request,
+                          'htmls/RUser/Predict_Liver_Disease_Status.html',
+                          {'objs': result})
 
         except Exception as e:
 
-            return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html', {"error": str(e)})
+            return render(request,
+                          'htmls/RUser/Predict_Liver_Disease_Status.html',
+                          {"error": str(e)})
 
-    return render(request, 'htmls/RUser/Predict_Liver_Disease_Status.html')
+    return render(request,
+                  'htmls/RUser/Predict_Liver_Disease_Status.html')
