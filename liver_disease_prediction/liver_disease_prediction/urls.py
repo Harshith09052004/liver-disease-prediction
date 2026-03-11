@@ -2,12 +2,11 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-
-def home(request):
-    return HttpResponse("Liver Disease Prediction Website Running Successfully")
+from Remote_User import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', views.home),
+    path('predict/', views.predict),
 ]
