@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY
 SECRET_KEY = 'your-secret-key'  # keep this same or change later
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']  # change later to your domain
 
