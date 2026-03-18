@@ -13,9 +13,6 @@
 <!-- Bootstrap -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Favicon -->
-<link rel="icon" href="{% static 'icon.png' %}" type="image/x-icon" />
-
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
@@ -76,15 +73,12 @@
     <hr>
 
     <div class="row justify-content-center">
-
         <div class="col-md-5 container-box">
 
-            <!-- IMAGE (FIXED) -->
-            <div class="text-center mb-3">
-                <img src="{% static 'Login.jpg' %}" class="img-fluid" alt="Login Image">
+            <div class="text-center mb-4">
+                <h4 class="style5">Welcome Back</h4>
             </div>
 
-            <!-- LOGIN FORM -->
             <form method="POST">
                 {% csrf_token %}
 
@@ -113,7 +107,6 @@
 
             </form>
         </div>
-
     </div>
 </div>
 ```
