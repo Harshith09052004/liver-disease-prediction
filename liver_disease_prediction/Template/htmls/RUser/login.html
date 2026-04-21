@@ -1,116 +1,103 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 {% load static %}
-
 <!DOCTYPE html>
 
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+	<title>Login</title>
 
-```
-<!-- Bootstrap -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	<head>
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 
-<style>
-    body {
-        background: url("{% static 'bg.jpg' %}");
-        background-size: cover;
-    }
 
-    .container-fluid {
-        padding: 50px;
-    }
 
-    .container-box {
-        background-color: white;
-        padding: 40px;
-        border-radius: 10px;
-    }
+		<style>
+			body {background: url("{% static 'bg.jpg' %}");
+			}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
 
-    #title {
-        font-family: 'Fredoka One', cursive;
-    }
+			}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style4 {color: #00FFFF; font-weight: bold; }
+        .style5 {
+	font-family: 'Righteous', cursive;
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style6 {color: #FF0000; font-weight: bold; }
+        </style>
+	</head>
+	<body>
+	<div class="container-fluid">
+		<div >
+			<h2 class="style6 text-center" id="title">Comparative Analysis of Liver diseases by using Machine Learning Techniques</h2>
+			 <p class="text-center">
+				<span class="style1"><small id="passwordHelpInline" class="text-muted">Liver Diseases, Machine Learning algorithms, Physicians, Patients.</small></span> </p>
+ 			<hr>
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center">&nbsp;</p>
+					  </fieldset>
+					</form>
+				</div>
 
-    .text-uppercase {
-        font-family: 'Righteous', cursive;
-    }
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
 
-    .style1 {
-        color: #FF0000;
-        font-weight: bold;
-    }
+				<div class="col-md-5">
+ 				 		<form method="POST" role="form">
+							{% csrf_token %}
 
-    .style5 {
-        font-family: 'Righteous', cursive;
-        color: #FF0000;
-        font-weight: bold;
-    }
-</style>
-```
+						<fieldset>
+                             {% load static %}
+						<img src="{% static '/login.jpg' %}" alt="My image">
+							<p class="style5"> Login Using Your Account: </p>
 
-</head>
+							<div class="form-group">
+								<input type="text" name="username"   placeholder="User Name" required>
+							</div>
+							<div class="form-group">
+								<input type="password" name="password"   placeholder="Password" required>
+							</div>
+							<div>
+								<input type="submit" name="submit1"  class="btn btn-md" value="sign_in">
+							</div></br>
 
-<body>
-    <div class="container-fluid">
-        <h2 class="text-center style1" id="title">
-            Comparative Analysis of Liver diseases by using Machine Learning Techniques
-        </h2>
+							<p class="style5"> Login Using Your Account: </p>
 
-```
-    <p class="text-center">
-        <small class="text-muted style1">
-            Liver Diseases, Machine Learning algorithms, Physicians, Patients.
-        </small>
-    </p>
+							<div>
 
-    <hr>
+							<button class="btn btn-lg "><a href="{% url 'serviceproviderlogin' %}">SERVICE PROVIDER</a></button>
+                                <button class="btn btn-lg "><a href="{% url 'Register1' %}">REGISTER</a></button>
+ 							</div>
+ 						</fieldset>
+				</form>
+				</div>
+			</div>
+		</div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-5 container-box">
+	</div>
+	</body>
 
-            <div class="text-center mb-4">
-                <h4 class="style5">Welcome Back</h4>
-            </div>
-
-            <form method="POST">
-                {% csrf_token %}
-
-                <p class="style5 text-center">Login Using Your Account</p>
-
-                <div class="form-group">
-                    <input type="text" name="username" class="form-control" placeholder="User Name" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                </div>
-
-                <div class="text-center">
-                    <input type="submit" name="submit1" class="btn btn-primary" value="Sign In">
-                </div>
-
-                <br>
-
-                <p class="style5 text-center">Other Options</p>
-
-                <div class="text-center">
-                    <a href="{% url 'serviceproviderlogin' %}" class="btn btn-success">SERVICE PROVIDER</a>
-                    <a href="{% url 'Register1' %}" class="btn btn-info">REGISTER</a>
-                </div>
-
-            </form>
-        </div>
-    </div>
-</div>
-```
-
-</body>
 
 </html>
